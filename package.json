@@ -1,0 +1,11 @@
+{
+  "name": "serious-chat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/veryserious/serious-chat.git",
+  "author": "Jamie Breen <jamie@veryserious.com.au>",
+  "license": "MIT",
+  "dependencies": {
+    "websocket": "^1.0.34"
+  }
+}
