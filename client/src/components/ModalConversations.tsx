@@ -12,9 +12,14 @@ import {
 import { useContacts } from "../contexts/ContactsProvider";
 import { useConversations } from "../contexts/ConversationsProvider";
 
-export default function ModalConversations() {
+export default function ModalConversations({
+  closeModal,
+}: {
+  closeModal: any;
+}) {
   const [selectedContactIds, setSelectedContactIds] = React.useState([]);
   const { contacts } = useContacts();
+  const { createConversation } = useConversations();
 
   const {
     handleSubmit,
@@ -46,12 +51,15 @@ export default function ModalConversations() {
           <Stack>
             <div>
               {contacts.map((contact: any) => (
-                <Checkbox
-                  key={contact.id}
-                  label={contact.name}
-                  value={selectedContactIds.includes(contact.id)}
-                  onChange={() => setSelectedContactIds(contact.id)}
-                ></Checkbox>
+                <FormControl key={contact.id}>
+                  <FormLabel htmlFor={contact.id}>{contact.name}</FormLabel>
+                  <Checkbox
+                    id={contact.id}
+                    label={contact.name}
+                    value={selectedContactIds.includes(contact.id)}
+                    onChange={() => handleCheckboxChange(contact.id)}
+                  ></Checkbox>
+                </FormControl>
               ))}
             </div>
           </Stack>
