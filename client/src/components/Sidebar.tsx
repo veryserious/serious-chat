@@ -44,6 +44,7 @@ export default function Sidebar({ id }: { id: string }) {
           </TabPanel>
           <TabPanel className="h-full flex flex-col justify-between">
             <Contacts />
+            {"id: " + id}
             <Button
               onClick={() => {
                 setModal("contacts");
